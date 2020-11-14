@@ -1,7 +1,6 @@
 require("dotenv").config;
 
 const User = require('../models').User;
-const Profile = require("../models").Profile;
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcryptjs");
 const constants = require("../constants");
@@ -10,6 +9,7 @@ const constants = require("../constants");
 
 const signUp = (req,res) => {
     console.log(req.body)
+    req.body.profileImg = `/images/profile/red_dice.jpeg`;
     // ToDo: add code for having default profile image and no image
     bcrypt.genSalt(10, (err,salt) => {
         if(err) {
@@ -40,21 +40,7 @@ const signUp = (req,res) => {
                 res.status(constants.SUCCESS).json({
                     "token": token,
                     "user": newUser
-                });
-
-
-                Profile.create({
-                    userId: newUser.id,
-                    profileImg: "",
-                    bio: "",
-                    gamesStarted: 0,
-                    gamesFinished: 0,
-                    gamesWon: 0,
-                    points: 0,
-                    plows: 0,
-                    combines: 0
-                })
-                
+                });              
             })
             .catch(err => {
                 console.log(err)
