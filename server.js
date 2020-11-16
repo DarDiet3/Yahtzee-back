@@ -8,6 +8,7 @@ const cors = require("cors");
 const app = express();
 const routes = require("./routes");
 const constants = require("./constants");
+const { route } = require("./routes/user");
 
 
 const corsOptions = {
@@ -46,7 +47,7 @@ app.use(bodyParser.json())
 app.use('/auth', routes.auth);
 app.use('/user',  routes.user); 
 app.use("/data", routes.data);
-
+app.use("/leaderboard", routes.leaderboard);
 
 
 app.listen(process.env.PORT, () => {
