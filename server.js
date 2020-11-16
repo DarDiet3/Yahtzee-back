@@ -22,7 +22,7 @@ const corsOptions = {
     credentials: true, //allows session cookies to be sent back and forth
     optionsSuccessStatus: 200 //legacy browsers
   }
-  
+
 const io = require("socket.io")(server, {
     cors: {corsOptions}
   });
@@ -60,13 +60,15 @@ app.use("/leaderboard", routes.leaderboard);
 
 io.on("connection", (socket) => {
   console.log(socket.id);
+
+  socket.on("SEND_MESSAGE", (data) => {
+    io.emit("RECEIVE_MESSAGE", data)
+    console.log(data)
+  })
 })
 
 server.listen(process.env.PORT, () => {
     console.log(`Habemus connexion ad portum ${process.env.PORT}`)
 })
-// server.listen(process.env.SOCKETPORT, (err) => {
-//   if(err) throw err
-//   console.log(`Socket: Habemus connexion ad portum ${process.env.SOCKETPORT}`)
-// })
+
 
