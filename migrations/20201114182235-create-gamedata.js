@@ -11,76 +11,118 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER
       },
-      rolled1: {
+      victorypoints: {
         type: Sequelize.INTEGER
       },
-      rolled2: {
+      rock: {
         type: Sequelize.INTEGER
       },
-      rolled3: {
+      wheat: {
         type: Sequelize.INTEGER
       },
-      rolled4: {
+      sheep: {
         type: Sequelize.INTEGER
       },
-      rolled5: {
+      brick: {
         type: Sequelize.INTEGER
       },
-      rolled6: {
+      wood: {
         type: Sequelize.INTEGER
       },
-      scored1: {
+      gold: {
         type: Sequelize.INTEGER
       },
-      scored2: {
+      settlements: {
         type: Sequelize.INTEGER
       },
-      scored3: {
+      cities: {
         type: Sequelize.INTEGER
       },
-      scored4: {
+      roads: {
         type: Sequelize.INTEGER
       },
-      scored5: {
+      knights: {
         type: Sequelize.INTEGER
       },
-      scored6: {
+      jokers: {
         type: Sequelize.INTEGER
       },
-      totalUpper1: {
+      round1: {
         type: Sequelize.INTEGER
       },
-      bonusUpper: {
+      round2: {
         type: Sequelize.INTEGER
       },
-      upperTotal: {
+      round3: {
         type: Sequelize.INTEGER
       },
-      kind3: {
+      round4: {
         type: Sequelize.INTEGER
       },
-      kind4: {
+      round5: {
         type: Sequelize.INTEGER
       },
-      fullhouse: {
+      round6: {
         type: Sequelize.INTEGER
       },
-      smStraight: {
+      round7: {
         type: Sequelize.INTEGER
       },
-      lgStraiht: {
+      round8: {
         type: Sequelize.INTEGER
       },
-      yahtzee: {
+      round9: {
         type: Sequelize.INTEGER
       },
-      chance: {
+      round10: {
         type: Sequelize.INTEGER
       },
-      totalLower: {
+      round11: {
         type: Sequelize.INTEGER
       },
-      grandtotal: {
+      round12: {
+        type: Sequelize.INTEGER
+      },
+      round13: {
+        type: Sequelize.INTEGER
+      },
+      round14: {
+        type: Sequelize.INTEGER
+      },
+      round15: {
+        type: Sequelize.INTEGER
+      },
+      trades: {
+        type: Sequelize.INTEGER
+      },
+      tradedrock: {
+        type: Sequelize.INTEGER
+      },
+      tradedwheat: {
+        type: Sequelize.INTEGER
+      },
+      tradedsheep: {
+        type: Sequelize.INTEGER
+      },
+      tradedbrick: {
+        type: Sequelize.INTEGER
+      },
+      tradedwood: {
+        type: Sequelize.INTEGER
+      },
+      jokerock: {
+        type: Sequelize.INTEGER
+      },
+      jokewheat: {
+        type: Sequelize.INTEGER
+      },
+      jokesheep: {
+        type: Sequelize.INTEGER
+      },
+      jokebrick: {
+        type: Sequelize.INTEGER
+      },
+      jokewood: {
         type: Sequelize.INTEGER
       },
       createdAt: {
