@@ -8,7 +8,11 @@ const cors = require("cors");
 const app = express();
 const routes = require("./routes");
 const constants = require("./constants");
-const { route } = require("./routes/user");
+const server = require("http").createServer(app);
+// const options ={/** */}
+
+
+
 
 
 const corsOptions = {
@@ -18,6 +22,10 @@ const corsOptions = {
     credentials: true, //allows session cookies to be sent back and forth
     optionsSuccessStatus: 200 //legacy browsers
   }
+  
+const io = require("socket.io")(server, {
+    cors: {corsOptions}
+  });
 
 const verifyToken = (req, res, next) => {
   let token =  req.headers["authorization"];
@@ -50,6 +58,15 @@ app.use("/data", routes.data);
 app.use("/leaderboard", routes.leaderboard);
 
 
-app.listen(process.env.PORT, () => {
+io.on("connection", (socket) => {
+  console.log(socket.id);
+})
+
+server.listen(process.env.PORT, () => {
     console.log(`Habemus connexion ad portum ${process.env.PORT}`)
 })
+// server.listen(process.env.SOCKETPORT, (err) => {
+//   if(err) throw err
+//   console.log(`Socket: Habemus connexion ad portum ${process.env.SOCKETPORT}`)
+// })
+
