@@ -17,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     victorypoints: DataTypes.INTEGER,
     rock: DataTypes.INTEGER,
-    rock: DataTypes.INTEGER,
     wheat: DataTypes.INTEGER,
     sheep: DataTypes.INTEGER,
     brick: DataTypes.INTEGER,
