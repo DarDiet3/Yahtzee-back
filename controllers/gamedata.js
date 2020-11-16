@@ -11,7 +11,7 @@ const addData = (req, res) => {
         victorypoints: data.totalPoints,
         rock: data.diceRolled.rock,
         wheat: data.diceRolled.wheat,
-        sheep: data.dicReolled.sheep,
+        sheep: data.diceRolled.sheep,
         brick: data.diceRolled.brick,
         wood: data.diceRolled.wood,
         gold: data.diceRolled.gold,
