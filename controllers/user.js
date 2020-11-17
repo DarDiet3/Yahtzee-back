@@ -60,7 +60,16 @@ const editUser = (req, res) => {
 }
 
 const deleteUser = (req, res) => {
-    console.log(req.params.user)
+    console.log(req.user)
+    User.destroy({
+        where: {id: req.params.userId}
+    })
+    .then(() => {
+        res.status(constants.SUCCESS).send('success')
+    })
+    .catch(err => {
+        res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+    })
 }
 
 module.exports = {
