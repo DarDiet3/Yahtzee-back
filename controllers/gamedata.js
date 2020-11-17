@@ -4,7 +4,6 @@ const GameData = require("../models").Gamedata;
 const constants = require("../constants");
 
 const addData = (req, res) => {
-    console.log(req.body)
     const data = req.body
     let dataToAdd = {
         userId: data.currentUser.id,
