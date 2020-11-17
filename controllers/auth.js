@@ -76,15 +76,15 @@ const login = (req, res) => {
                         "user": foundUser
                     });
                 } else {
-                    res.status(constants.BAD_REQUEST).send(`ERROR: Incorrect USername/Password`);
+                    res.json({"err":`ERROR: Incorrect Username/Password`}).status(constants.BAD_REQUEST);
                 }
             })
         } else {
-            res.status(constants.BAD_REQUEST).send(`ERROR: Incorrect Username/Passord`);
+            res.json({"err":`ERROR: Incorrect Username/Password`}).status(constants.BAD_REQUEST);
         }
     })
     .catch(err => {
-        res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+        res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: Incorrect Username/Password`)
     })
 }
 
