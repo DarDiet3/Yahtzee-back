@@ -29,27 +29,32 @@ const editUser = (req, res) => {
         if (err) {
             res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
         }
-
-
-        User.update(req.body, {
-            where: {
-                id: req.body.id
-            },
-            returning: true
-        })
-        .then(() => {
-            User.findOne({
+        bcrypt.hash(req.body.password, salt, (err, hashedPswd) => {
+            if(err) {
+                return res.send(err);
+            }
+            req.body.password = hashedPswd;
+            
+            User.update(req.body, {
                 where: {
                     id: req.body.id
                 },
-                include: [GameData]
+                returning: true
             })
-            .then(userData => {
-                res.status(constants.SUCCESS).json({userData})
+            .then(() => {
+                User.findOne({
+                    where: {
+                        id: req.body.id
+                    },
+                    include: [GameData]
+                })
+                .then(userData => {
+                    res.status(constants.SUCCESS).json({userData})
+                })
             })
-        })
-        .catch(err => {
-            res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+            .catch(err => {
+                res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+            })
         })
     })
 }
