@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('leaderboards', [
+    await queryInterface.bulkInsert('Leaderboards', [
       {
         userId: 1,
         username: "guest",
