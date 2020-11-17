@@ -4,6 +4,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const methodOverride = require('method-override');
+
 
 const app = express();
 const routes = require("./routes");
@@ -51,6 +53,9 @@ const verifyToken = (req, res, next) => {
 app.options("*", cors(corsOptions))
 app.use(cors(corsOptions))
 app.use(bodyParser.json())
+
+app.use(methodOverride('_method'));
+app.use(express.urlencoded({extended: true}));
 
 app.use('/auth', routes.auth);
 app.use('/user',  routes.user); 

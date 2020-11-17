@@ -11,18 +11,55 @@ const getUserData = (req, res) => {
         where: {
             id: req.params.id
         },
-        include:[GameData]
+        include: [GameData]
     })
-    .then(userData => {
-        res.status(constants.SUCCESS).json({
-            "userData": userData
+        .then(userData => {
+            res.status(constants.SUCCESS).json({
+                "userData": userData
+            })
         })
-    })
-    .catch(err => {
-        res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+        .catch(err => {
+            res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+        })
+}
+
+const editUser = (req, res) => {
+    console.log(req.body)
+    bcrypt.genSalt(10, (err, salt) => {
+        if (err) {
+            res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+        }
+
+
+        User.update(req.body, {
+            where: {
+                id: req.body.id
+            },
+            returning: true
+        })
+        .then(() => {
+            User.findOne({
+                where: {
+                    id: req.body.id
+                },
+                include: [GameData]
+            })
+            .then(userData => {
+                res.status(constants.SUCCESS).json({userData})
+            })
+        })
+        .catch(err => {
+            res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+        })
     })
 }
 
+const deleteUser = (req, res) => {
+    console.log(req.params.user)
+}
+
 module.exports = {
-    getUserData
+    getUserData,
+    editUser,
+    deleteUser
 }
