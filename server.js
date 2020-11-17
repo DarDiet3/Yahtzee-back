@@ -62,7 +62,8 @@ app.use('/user',  routes.user);
 app.use("/data", routes.data);
 app.use("/leaderboard", routes.leaderboard);
 
-
+//https://itnext.io/building-a-node-js-websocket-chat-app-with-socket-io-and-react-473a0686d1e1
+// and Docs from API site
 io.on("connection", (socket) => {
   console.log(socket.id);
 
@@ -70,6 +71,19 @@ io.on("connection", (socket) => {
     io.emit("RECEIVE_MESSAGE", data)
     console.log(data)
   })
+
+  // socket.on("JOIN", handleJoin)
+
+  // socket.on("LEAVE", handleLeave)
+
+  // socket.on("GET_GAMES", handleGetGames)
+
+  // socket.on("GET_AVAILABLE_USERS", handleGetAvailableUsers)
+
+  // socket.on('DISCONNECT', function () {
+  //   console.log('socket disconnect...', socket.id)
+  //   handleDisconnect()
+  // })
 })
 
 server.listen(process.env.PORT, () => {
