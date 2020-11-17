@@ -7,7 +7,7 @@ module.exports = {
       username: "guest",
       password:"",
       email:"",
-      profile_img: `/images/profile/red_dice.jpeg`
+      profileImg: `/images/profile/red_dice.jpeg`
     }], {});
     
   },

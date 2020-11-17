@@ -4,52 +4,52 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('leaderboards', [
       {
-        user_id: 1,
+        userId: 1,
         username: "guest",
         score: 0
       },
       {
-        user_id: 1,
+        userId: 1,
         username: "guest",
         score: 0
       },
       {
-        user_id: 1,
+        userId: 1,
         username: "guest",
         score: 0
       },
       {
-        user_id: 1,
+        userId: 1,
         username: "guest",
         score: 0
       },
       {
-        user_id: 1,
+        userId: 1,
         username: "guest",
         score: 0
       },
       {
-        user_id: 1,
+        userId: 1,
         username: "guest",
         score: 0
       },
       {
-        user_id: 1,
+        userId: 1,
         username: "guest",
         score: 0
       },
       {
-        user_id: 1,
+        userId: 1,
         username: "guest",
         score: 0
       },
       {
-        user_id: 1,
+        userId: 1,
         username: "guest",
         score: 0
       },
       {
-        user_id: 1,
+        userId: 1,
         username: "guest",
         score: 0
       }

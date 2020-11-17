@@ -24,15 +24,15 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true
       },
-      profile_img: {
+      profileImg: {
         type: Sequelize.STRING
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: new Date()
       },
-      updated_at: {
+      updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: new Date()
