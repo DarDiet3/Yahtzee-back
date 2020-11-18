@@ -53,6 +53,7 @@ module.exports = (sequelize, DataTypes) => {
     jokesheep: DataTypes.INTEGER,
     jokebrick: DataTypes.INTEGER,
     jokewood: DataTypes.INTEGER,
+    gamecomplete: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Gamedata',
