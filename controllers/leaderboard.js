@@ -29,7 +29,7 @@ const getScore = (req, res) => {
         limit: req.params.len,
         include: [{
             model: User,
-            attributes: profileImg
+            attributes: ["profileImg"]
         }]
     })
     .then(board => {
