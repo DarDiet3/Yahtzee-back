@@ -141,6 +141,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('gamedata');
+    await queryInterface.dropTable('Gamedata');
   }
 };
