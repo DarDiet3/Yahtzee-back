@@ -24,7 +24,6 @@ const getUserData = (req, res) => {
 }
 
 const editUser = (req, res) => {
-    console.log(req.body)
     bcrypt.genSalt(10, (err, salt) => {
         if (err) {
             res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
@@ -60,7 +59,6 @@ const editUser = (req, res) => {
 }
 
 const deleteUser = (req, res) => {
-    console.log(req.user)
     User.destroy({
         where: {id: req.params.userId}
     })

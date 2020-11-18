@@ -23,7 +23,6 @@ const addScore = (req, res) => {
 }
 
 const getScore = (req, res) => {
-    console.log(req.params)
     Board.findAll({
         order:[["score", "DESC"]],
         limit: req.params.len,

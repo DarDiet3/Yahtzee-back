@@ -8,7 +8,6 @@ const constants = require("../constants");
 
 
 const signUp = (req,res) => {
-    console.log(req.body)
     req.body.profileImg = `/images/profile/red_dice.jpeg`;
     // ToDo: add code for having default profile image and no image
     bcrypt.genSalt(10, (err,salt) => {
@@ -35,15 +34,12 @@ const signUp = (req,res) => {
                         expiresIn: "1 day"
                     }
                 );
-                    console.log("I'm in here")
-                    console.log(`Token: ${token}`)
                 res.status(constants.SUCCESS).json({
                     "token": token,
                     "user": newUser
                 });              
             })
             .catch(err => {
-                console.log(err)
                 res.send(`3: ${err}`)
                 // res.status(constants.BAD_REQUEST).send(`ERROR: ${err}`);
             })

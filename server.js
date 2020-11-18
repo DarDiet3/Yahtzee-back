@@ -18,8 +18,8 @@ const server = require("http").createServer(app);
 
 
 const corsOptions = {
-    // origin: ["http://settlers-of-deere.surge.sh"],
-    origin: ['http://localhost:3000'],
+    origin: ["http://settlers-of-deere.surge.sh"],
+    // origin: ['http://localhost:3000'],
     methods: "GET,POST,PUT,DELETE",
     credentials: true, //allows session cookies to be sent back and forth
     optionsSuccessStatus: 200 //legacy browsers
@@ -68,7 +68,6 @@ io.on("connection", (socket) => {
 
   socket.on("SEND_MESSAGE", (data) => {
     io.emit("RECEIVE_MESSAGE", data)
-    console.log(data)
   })
 })
 
