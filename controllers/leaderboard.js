@@ -1,9 +1,8 @@
 require("dotenv").config;
 
 const Board = require('../models').Leaderboard;
-const jwt = require('jsonwebtoken');
-const bcrypt = require("bcryptjs");
 const constants = require("../constants");
+const User = require("../models").User;
 
 const addScore = (req, res) => {
     const scoreData = {
@@ -27,7 +26,11 @@ const getScore = (req, res) => {
     console.log(req.params)
     Board.findAll({
         order:[["score", "DESC"]],
-        limit: req.params.len
+        limit: req.params.len,
+        include: [{
+            model: User,
+            attributes: profileImg
+        }]
     })
     .then(board => {
         res.status(constants.SUCCESS).json({
