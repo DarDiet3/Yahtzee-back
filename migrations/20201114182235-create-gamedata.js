@@ -125,6 +125,9 @@ module.exports = {
       jokewood: {
         type: Sequelize.INTEGER
       },
+      gamecomplete:{
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

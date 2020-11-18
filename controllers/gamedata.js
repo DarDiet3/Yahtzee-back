@@ -45,6 +45,7 @@ const addData = (req, res) => {
         jokesheep: data.jokerCount.sheep,
         jokebrick: data.jokerCount.brick,
         jokewood: data.jokerCount.wood,
+        gamecomplete: data.gameComplete
       }
     GameData.create(dataToAdd)
     .then(newData => {
